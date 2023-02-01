@@ -8,37 +8,29 @@ public class RomanToInteger {
         System.out.print("Input: ");
         String roman = sc.nextLine();
 
-        int number;
         int count = 0;
 
         for(int i = 0; i < roman.length(); i++) {
             if(roman.charAt(i) == 'I') {
-                number = 1;
-                count += number;
+                count += 1;
             }
             else if(roman.charAt(i) == 'V') {
-                number = 5;
-                count += number;
+                count += 5;
             }
             else if(roman.charAt(i) == 'X') {
-                number = 10;
-                count += number;
+                count += 10;
             }
             else if(roman.charAt(i) == 'L') {
-                number = 50;
-                count += number;
+                count += 50;
             }
             else if(roman.charAt(i) == 'C') {
-                number = 100;
-                count += number;
+                count += 100;
             }
             else if(roman.charAt(i) == 'D') {
-                number = 500;
-                count += number;
+                count += 500;
             }
             else if(roman.charAt(i) == 'M') {
-                number = 1000;
-                count += number;
+                count += 1000;
             }
         }
 
