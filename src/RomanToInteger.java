@@ -13,24 +13,54 @@ public class RomanToInteger {
         int count = 0;
 
         for(int i = 0; i < roman.length(); i++) {
-            switch (roman.charAt(i)) {
-                case 'I': number[i] = 1;
-                case 'V': number[i] = 5;
-                case 'X': number[i] = 10;
-                case 'L': number[i] = 50;
-                case 'C': number[i] = 100;
-                case 'D': number[i] = 500;
-                case 'M': number[i] = 1000;
+            if(roman.charAt(i) == 'I') {
+                number[i] = 1;
+            }
+            else if(roman.charAt(i) == 'V') {
+                number[i] = 5;
+            }
+            else if(roman.charAt(i) == 'X') {
+                number[i] = 10;
+            }
+            else if(roman.charAt(i) == 'L') {
+                number[i] = 50;
+            }
+            else if(roman.charAt(i) == 'C') {
+                number[i] = 100;
+            }
+            else if(roman.charAt(i) == 'D') {
+                number[i] = 500;
+            }
+            else if(roman.charAt(i) == 'M') {
+                number[i] = 1000;
             }
         }
 
-        for(int i = 0; i < roman.length(); i++) {
-            for(int j = 0; j < roman.length(); j++) {
-                if(number[i] >= number[j] && j != i) {
-                    count += number[i];
+        if(number[0] <= number[1]) {
+            for(int i = 0; i < roman.length(); i++) {
+                for(int j = 0; j < roman.length(); j++) {
+                    if(number[i] >= number[j] && j != i) {
+                        count += number[i];
+                        break;
+                    }
+                    else if(number[i] <= number[j] && j != i){
+                        count -= number[i];
+                        break;
+                    }
                 }
-                else {
-                    count -= number[i];
+            }
+        }
+        else {
+            for(int i = 0; i < roman.length(); i++) {
+                for(int j = 0; j < roman.length(); j++) {
+                    if(number[i] >= number[j] && j != i) {
+                        count += number[i];
+                        break;
+                    }
+                    else if(number[i] <= number[j] && j != i){
+                        count += number[i];
+                        break;
+                    }
                 }
             }
         }
