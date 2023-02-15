@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class RomanToInteger {
+public class ProgramRomanToInteger {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class RomanToInteger {
 
         int count = 0;
 
-        for(int i = roman.length(); i == 0; i--) {
+        for(int i = roman.length() - 1; i >= 0; i--) {
             if(roman.charAt(i) == 'I') {
                 number[i] = 1;
             }
@@ -34,21 +34,18 @@ public class RomanToInteger {
             else if(roman.charAt(i) == 'M') {
                 number[i] = 1000;
             }
-            count += sumRoman(number[i]);
+            if(number[i] >= count) {
+                count += number[i];
+            }
+            else {
+                count -= number[i];
+            }
         }
 
         System.out.println("Output: " + count);
 
         sc.close();
     }
-    private static int sumRoman(int number) {
-        int sum = 0;
-        if(number > sum) {
-            sum += number;
-        }
-        else {
-            sum -= number;
-        }
-        return sum;
-    }
+
 }
+
